@@ -16,9 +16,9 @@ class CacheIcommerceEpaycoDecorator extends BaseCacheDecorator implements Icomme
 
     public function calculate($parameters,$conf)
     {
-        return $this->remember(function () use ($parameters,$conf) {
-            return $this->repository->calculate($parameters, $conf);
-        });
+       
+        return $this->repository->calculate($parameters, $conf);
+        
     }
 
     
