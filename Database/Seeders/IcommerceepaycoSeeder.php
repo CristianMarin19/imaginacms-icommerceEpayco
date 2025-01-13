@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Icommercepayzen\Database\Seeders;
+namespace Modules\Icommerceepayco\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -45,16 +45,16 @@ class IcommerceepaycoSeeder extends Seeder
       $this->addTranslation($paymentMethod, 'en', $titleTrans, $descriptionTrans);
       $this->addTranslation($paymentMethod, 'es', $titleTrans, $descriptionTrans);
     } else {
-      if ($paymentMethod->description != trans('icommercepayzen::icommercepayzens.iaDescription', [], locale())) {
+      if ($paymentMethod->description != trans('icommerceepayco::icommerceepaycos.iaDescription', [], locale())) {
         $data = array(
-          'es' => ['description' => trans('icommercepayzen::icommercepayzens.iaDescription', [], 'es')],
-          'en' => ['description' => trans('icommercepayzen::icommercepayzens.iaDescription', [], 'en')]
+          'es' => ['description' => trans('icommerceepayco::icommerceepaycos.iaDescription', [], 'es')],
+          'en' => ['description' => trans('icommerceepayco::icommerceepaycos.iaDescription', [], 'en')]
         );
         $paymentMethod = $PaymentMethodRepository->update($paymentMethod, $data);
         //Instance file service
         $fileService = app("Modules\Media\Services\FileService");
         //Instance the file path
-        $filePath = 'Modules/Icommercepayzen/Resources/img/payzen_default.png';
+        $filePath = 'Modules/Icommerceepayco/Resources/img/epayco_default.png';
         if (Storage::disk('local')->exists($filePath)) {
           // Obtener el contenido del archivo
           $fileContents = Storage::disk('local')->get($filePath);
